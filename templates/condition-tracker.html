@@ -1,0 +1,90 @@
+
+<section class="ct-wrapper">
+  <header class="ct-header">
+    <h2>{{tokenName}}</h2>
+    <div class="spacer"></div>
+    <button type="button" class="ct-reset" data-action="reset-all"><i class="fas fa-rotate"></i> Reset All</button>
+  </header>
+
+  <table class="ct-table">
+    <thead>
+      <tr>
+        <th>Condition</th>
+        <th>Ability</th>
+        <th>Current</th>
+        <th>Threshold</th>
+        <th>↑PB (from triggers)</th>
+        <th>±PB Offset</th>
+        <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#if rows.length}}
+      {{#each rows as |r|}}
+      <tr class="{{#if (gte r.current r.threshold)}}hit{{/if}}">
+        <td class="name">
+          <div class="title">{{r.label}}</div>
+          {{#if r.notes}}<div class="notes">{{r.notes}}</div>{{/if}}
+        </td>
+        <td class="ability">{{r.ability}}</td>
+        <td class="current">
+          <div class="value">{{r.current}}</div>
+          <div class="buttons">
+            <button data-action="inc" data-key="{{r.key}}" data-step="1">+1</button>
+            <button data-action="inc" data-key="{{r.key}}" data-step="5">+5</button>
+            <button data-action="dec" data-key="{{r.key}}" data-step="1">−1</button>
+            <button data-action="set0" data-key="{{r.key}}">0</button>
+          </div>
+        </td>
+        <td class="threshold">{{r.threshold}}</td>
+        <td class="escalations">
+          <div class="value">{{r.escalations}}</div>
+          <div class="buttons">
+            <button data-action="escalate" data-key="{{r.key}}" title="Trigger resolved; PB+1">Trigger</button>
+            <button data-action="deescalate" data-key="{{r.key}}">−1</button>
+          </div>
+        </td>
+        <td class="pboffset">
+          <div class="value">{{r.pbOffset}}</div>
+          <div class="buttons">
+            <button data-action="pb+" data-key="{{r.key}}">+1</button>
+            <button data-action="pb-" data-key="{{r.key}}">−1</button>
+          </div>
+        </td>
+        <td class="row-controls">
+          <button data-action="remove" data-key="{{r.key}}" class="danger"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+      {{/each}}
+    {{else}}
+      <tr><td colspan="7"><em>No conditions are being tracked. Add one below.</em></td></tr>
+    {{/if}}
+    </tbody>
+  </table>
+
+  <div class="ct-add">
+    <div class="add-existing">
+      <label>Add definition:</label>
+      <select name="addKey">
+        {{#each addChoices as |d|}}
+          <option value="{{d.key}}">{{d.label}} ({{d.ability}})</option>
+        {{/each}}
+      </select>
+      <button data-action="add-cond">Add</button>
+    </div>
+
+    <div class="add-custom">
+      <label>Custom:</label>
+      <input type="text" name="customLabel" placeholder="Name">
+      <select name="customAbility">
+        <option value="str">STR</option>
+        <option value="dex">DEX</option>
+        <option value="con" selected>CON</option>
+        <option value="int">INT</option>
+        <option value="wis">WIS</option>
+        <option value="cha">CHA</option>
+      </select>
+      <button data-action="add-custom">Add</button>
+    </div>
+  </div>
+</section>

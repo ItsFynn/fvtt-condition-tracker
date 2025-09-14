@@ -1,0 +1,22 @@
+
+/* Basic layout */
+.fvtt-condition-tracker .ct-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.fvtt-condition-tracker .ct-header h2 { margin: 0; font-size: 1.2rem; }
+.fvtt-condition-tracker .ct-header .spacer { flex: 1 1 auto; }
+.fvtt-condition-tracker .ct-table { width: 100%; border-collapse: collapse; }
+.fvtt-condition-tracker .ct-table th,
+.fvtt-condition-tracker .ct-table td { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 4px 6px; }
+.fvtt-condition-tracker .ct-table .name .title { font-weight: 600; }
+.fvtt-condition-tracker .ct-table .name .notes { font-size: 0.8em; opacity: 0.8; }
+.fvtt-condition-tracker .ct-table td .buttons button { margin: 0 2px; }
+.fvtt-condition-tracker .ct-table tr.hit { background: rgba(255, 120, 120, 0.15); }
+.fvtt-condition-tracker .ct-add { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
+.fvtt-condition-tracker .danger { color: #ff8888; }
+
+/* HUD button sizing */
+.token-hud .control-icon.fvtt-condition-tracker-btn i { font-size: 22px; }

@@ -1,0 +1,27 @@
+{
+  "id": "fvtt-condition-tracker",
+  "title": "Condition Tracker (GM-Only)",
+  "description": "Adds a GM-only token HUD button that opens a per-token condition tracker dialog with thresholds based on actor stats (dnd5e).",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "ChatGPT (for Finn)",
+      "url": "https://chat.openai.com"
+    }
+  ],
+  "url": "https://example.com/fvtt-condition-tracker",
+  "license": "MIT",
+  "esmodules": [
+    "scripts/condition-tracker.js"
+  ],
+  "styles": [
+    "styles/condition-tracker.css"
+  ],
+  "languages": [],
+  "packs": [],
+  "socket": false
+}
