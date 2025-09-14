@@ -13,7 +13,7 @@
       "url": "https://chat.openai.com"
     }
   ],
-  "url": "https://example.com/fvtt-condition-tracker",
+  "url": "https://github.com/ItsFynn/fvtt-condition-tracker",
   "license": "MIT",
   "esmodules": [
     "scripts/condition-tracker.js"
